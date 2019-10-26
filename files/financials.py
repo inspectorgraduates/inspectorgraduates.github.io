@@ -13,7 +13,9 @@ def run_year1(gamers, nongamers, gamer_conversion, nongamer_conversion):
     print("----------------------------------------")
     print("Num users: {}M".format(users))
 
-    # 
+    # Revenue from YouTube: Assume we get 0.25 fraction of first-year Twitch
+    # viewers (1.2 million). Each user watches 20 ads a day, we get 0.06
+    # dollars per ad.
     rev_youtube = 1.2 * .25 * 20 * 0.06 * 365
 
     # Revenue from royalties = #users * $15 per game * two games per year
@@ -38,7 +40,7 @@ def run_year1(gamers, nongamers, gamer_conversion, nongamer_conversion):
     # Variable cost of computing: Number of servers times XXX?
     cost_computing_var = users * 8 / 168. * 168 * 2 * 0.01
 
-    # Marketing cost
+    # Marketing cost: Non-gamers marketing + YouTube influencers
     cost_marketing = 88.34 + 1.1
 
     cost_total = cost_streaming + cost_computing_fixed + cost_computing_var + cost_marketing
